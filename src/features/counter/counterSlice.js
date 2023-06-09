@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchCount } from "./counterAPI";
 
-const initialState = {};
+const initialState = { characterInput: "" };
 
 export const counterSlice = createSlice({
   name: "counter",
@@ -36,24 +36,38 @@ export const counterSlice = createSlice({
     setCharacterInput: (state, action) => {
       state.characterInput = action.payload;
     },
+
     deleteItem: (state, action) => {
-      const indexOf = state.simpsons._simpsons.findIndex((char) => {
+      const indexOf = state.simpsons.findIndex((char) => {
         return char.id === action.payload;
       });
-      state.simpsons._simpsons.splice(indexOf, 1);
+      state.simpsons.splice(indexOf, 1);
     },
-  },
-  likeToggle: (state, action) => {
-    const indexOf = state.simpsions._simpsons.findIndex((char) => {
-      return char.id === action.payload;
-    });
-    ///toggle liked property
-    state.simpsions._simpsons[indexOf].liked =
-      !state.simpsions._simpsons[indexOf].liked;
+
+    likeToggle: (state, action) => {
+      const indexOf = state.simpsons.findIndex((char) => {
+        return char.id === action.payload;
+      });
+      ///toggle liked property
+      state.simpsons[indexOf].liked = !state.simpsons[indexOf].liked;
+    },
+
+    itemDirection: (state, action) => {
+      const indexOf = state.simpsons.findIndex((char) => {
+        return char.id === action.payload;
+      });
+      ///toggle liked property
+      // console.log(indexOf, id);
+      state.simpsons[indexOf].characterDirection =
+        state.simpsons[indexOf].characterDirection === "Left"
+          ? "Right"
+          : "Left";
+    },
   },
 });
 
 export const {
+  itemDirection,
   likeToggle,
   deleteItem,
   setCharacterInput,

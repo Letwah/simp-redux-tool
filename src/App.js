@@ -26,15 +26,18 @@ const App = () => {
   const dispatch = useDispatch();
 
   const getData = useCallback(async () => {
-    console.log("get data ran");
+    // console.log("get data ran");
     try {
       const { data } = await axios.get(
         `https://thesimpsonsquoteapi.glitch.me/quotes?count=15&character=${characterInput}` //Would return up to 15 quotes from Homer and Milhouse
       );
+
+      console.log(characterInput);
       //fix the api data to have unique id
       data.forEach((element, index) => {
         element.id = index + Math.random();
       });
+      console.log(data);
       dispatch(setSimpsons(data));
     } catch (error) {
       console.log(error);
@@ -46,43 +49,6 @@ const App = () => {
   useEffect(() => {
     getData();
   }, [getData]); // hook that triggers behaviour - means run once cos square brackets (dependancy array)
-
-  // const onLikeToggle = (id) => {
-  //   const _simpsons = [...simpsons];
-  //   const indexOf = _simpsons.findIndex((char) => {
-  //     return char.id === id;
-  //   });
-  //   ///toggle liked property
-
-  //   console.log(indexOf, id);
-  //   _simpsons[indexOf].liked = !_simpsons[indexOf].liked;
-  //   setSimpsons(_simpsons);
-  // };
-
-  // const onDelete = (id) => {
-  //   const _simpsons = [...simpsons];
-  //   const indexOf = _simpsons.findIndex((char) => {
-  //     return char.id === id;
-  //   });
-  //   _simpsons.splice(indexOf, 1);
-  //   setSimpsons(_simpsons);
-  // };
-
-  //set direction here
-  const onDirection = (id) => {
-    const _simpsons = [...simpsons];
-    const indexOf = _simpsons.findIndex((char) => {
-      return char.id === id;
-    });
-    ///toggle liked property
-
-    console.log(indexOf, id);
-
-    _simpsons[indexOf].characterDirection =
-      _simpsons[indexOf].characterDirection === "Left" ? "Right" : "Left";
-
-    setSimpsons(_simpsons);
-  };
 
   const onCharacterInput = (value) => {
     dispatch(setCharacterInput(value));
@@ -156,10 +122,10 @@ const App = () => {
       </div>
       <Simpsons
         simpsons={simpsonsCopy}
-        onLikeToggle={onLikeToggle}
-        onDelete={onDelete}
-        onDirection={onDirection}
-        setDirection={onDirection}
+        // onLikeToggle={onLikeToggle}
+        // onDelete={onDelete}
+        // onDirection={onDirection}
+        // setDirection={onDirection}
       />
     </>
   ); //must return HTML

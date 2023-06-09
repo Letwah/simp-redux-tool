@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { deleteItem } from "../counterSlice";
 
 const Delete = (props) => {
-  const { onDelete, id } = props;
+  const { id } = props;
 
   const dispatch = useDispatch;
   return (
@@ -15,4 +15,3 @@ const Delete = (props) => {
 };
 
 export default Delete;
-//test push 2
