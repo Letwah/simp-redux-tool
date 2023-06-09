@@ -1,12 +1,15 @@
 import Name from "./Name";
 import Quote from "./Quote";
 import Image from "./Image";
-import Delete from "./Delete";
+// import deleteItem from "..counterSlice";
 import Direction from "./Direction";
+import { useDispatch } from "react-redux";
 
 const Character = (props) => {
   const { character, quote, image, id, characterDirection, liked } = props.item;
   const { onLikeToggle, onDelete, onDirection } = props;
+
+  // const dispatch = useDispatch;
 
   // console.log(direction);
 

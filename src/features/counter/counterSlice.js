@@ -36,10 +36,26 @@ export const counterSlice = createSlice({
     setCharacterInput: (state, action) => {
       state.characterInput = action.payload;
     },
+    deleteItem: (state, action) => {
+      const indexOf = state.simpsons._simpsons.findIndex((char) => {
+        return char.id === action.payload;
+      });
+      state.simpsons._simpsons.splice(indexOf, 1);
+    },
+  },
+  likeToggle: (state, action) => {
+    const indexOf = state.simpsions._simpsons.findIndex((char) => {
+      return char.id === action.payload;
+    });
+    ///toggle liked property
+    state.simpsions._simpsons[indexOf].liked =
+      !state.simpsions._simpsons[indexOf].liked;
   },
 });
 
 export const {
+  likeToggle,
+  deleteItem,
   setCharacterInput,
   setLiked,
   setSearch,
