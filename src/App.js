@@ -47,26 +47,26 @@ const App = () => {
     getData();
   }, [getData]); // hook that triggers behaviour - means run once cos square brackets (dependancy array)
 
-  const onLikeToggle = (id) => {
-    const _simpsons = [...simpsons];
-    const indexOf = _simpsons.findIndex((char) => {
-      return char.id === id;
-    });
-    ///toggle liked property
+  // const onLikeToggle = (id) => {
+  //   const _simpsons = [...simpsons];
+  //   const indexOf = _simpsons.findIndex((char) => {
+  //     return char.id === id;
+  //   });
+  //   ///toggle liked property
 
-    console.log(indexOf, id);
-    _simpsons[indexOf].liked = !_simpsons[indexOf].liked;
-    setSimpsons(_simpsons);
-  };
+  //   console.log(indexOf, id);
+  //   _simpsons[indexOf].liked = !_simpsons[indexOf].liked;
+  //   setSimpsons(_simpsons);
+  // };
 
-  const onDelete = (id) => {
-    const _simpsons = [...simpsons];
-    const indexOf = _simpsons.findIndex((char) => {
-      return char.id === id;
-    });
-    _simpsons.splice(indexOf, 1);
-    setSimpsons(_simpsons);
-  };
+  // const onDelete = (id) => {
+  //   const _simpsons = [...simpsons];
+  //   const indexOf = _simpsons.findIndex((char) => {
+  //     return char.id === id;
+  //   });
+  //   _simpsons.splice(indexOf, 1);
+  //   setSimpsons(_simpsons);
+  // };
 
   //set direction here
   const onDirection = (id) => {
