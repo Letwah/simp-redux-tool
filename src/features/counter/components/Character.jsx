@@ -3,7 +3,7 @@ import Quote from "./Quote";
 import Image from "./Image";
 // import deleteItem from "..counterSlice";
 import Direction from "./Direction";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 
 const Character = (props) => {
   const { character, quote, image, id, characterDirection, liked } = props.item;
