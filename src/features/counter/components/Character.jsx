@@ -1,7 +1,7 @@
 import Name from "./Name";
 import Quote from "./Quote";
 import Image from "./Image";
-import Delete from "..counterSlice";
+import Delete from "./Delete";
 // import Direction from "./Direction";
 import { useDispatch } from "react-redux";
 
@@ -9,7 +9,7 @@ const Character = (props) => {
   const { character, quote, image, id, characterDirection, liked } = props.item;
   // const { onLikeToggle, onDirection } = props;
 
-  const [deleteItem] = useDispatch();
+  const dispatch = useDispatch();
 
   // console.log(direction);
 
@@ -17,15 +17,10 @@ const Character = (props) => {
     return (
       //this is like each "card"
       <div className="characterContainer">
-        <Name
-          character={character}
-          // onLikeToggle={onLikeToggle}
-          id={id}
-          liked={liked}
-        />
+        <Name character={character} id={id} liked={liked} />
         <Quote quote={quote} />
         <Image image={image} character={character} liked={liked} />
-        <Delete deleteItem={deleteItem} id={id} />
+        <Delete id={id} />
         {/* <Direction onDirection={onDirection} id={id} /> */}
       </div>
     );
@@ -33,15 +28,10 @@ const Character = (props) => {
   return (
     //this is like each "card" character direction
     <div className="characterContainer">
-      <Name
-        character={character}
-        // onLikeToggle={onLikeToggle}
-        id={id}
-        liked={liked}
-      />
+      <Name character={character} id={id} liked={liked} />
       <Image image={image} character={character} liked={liked} />
       <Quote quote={quote} />
-      <Delete deleteItem={deleteItem} id={id} />
+      <Delete id={id} />
       {/* <Direction onDirection={onDirection} id={id} /> */}
     </div>
   );

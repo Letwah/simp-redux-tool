@@ -1,31 +1,25 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import {
-  setDeleteItem,
-  selectDeleteItem,
-  setLiked,
   setSimpsons,
-  selectLiked,
   selectSimpsons,
   setSearch,
   selectSearch,
   setCharacterInput,
   selectCharacterInput,
+  selectLikedDropdownOption,
 } from "./features/counter/counterSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "./features/counter/components/Loading";
 import Search from "./features/counter/components/Search";
 import Simpsons from "./features/counter/components/Simpsons";
-import Delete from "./features/counter/components/Delete";
 
 import "./App.css";
 
 const App = () => {
   const simpsons = useSelector(selectSimpsons);
   const search = useSelector(selectSearch);
-  const liked = useSelector(selectLiked);
-  const characterInput = useSelector(selectCharacterInput);
-  const deleteItem = useSelector(selectDeleteItem);
+  const likedDropdownOption = useSelector(selectLikedDropdownOption);
 
   const dispatch = useDispatch();
 
@@ -33,10 +27,10 @@ const App = () => {
     // console.log("get data ran");
     try {
       const { data } = await axios.get(
-        `https://thesimpsonsquoteapi.glitch.me/quotes?count=15&character=${characterInput}` //Would return up to 15 quotes from Homer and Milhouse
+        `https://thesimpsonsquoteapi.glitch.me/quotes?count=15&character=${search}` //Would return up to 15 quotes from Homer and Milhouse
       );
 
-      console.log(characterInput);
+      console.log(search);
       //fix the api data to have unique id
       data.forEach((element, index) => {
         element.id = index + Math.random();
@@ -46,7 +40,7 @@ const App = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [characterInput]);
+  }, [search]);
 
   // console.log(characterInput);
 
@@ -61,15 +55,6 @@ const App = () => {
   const onSearchInput = (e) => {
     // setSearch(e.target.value);
     dispatch(setSearch(e.target.value));
-  };
-
-  const onLikeDislikeInput = (e) => {
-    // setLiked(e.target.value);
-    dispatch(setLiked(e.target.value));
-  };
-
-  const onDeleteItem = (e) => {
-    dispatch(setDeleteItem(id));
   };
 
   //if nothing in state show "loading"
@@ -90,12 +75,12 @@ const App = () => {
   }
   //sort by liked/not liked
   // console.log(liked);
-  if (liked === "liked") {
+  if (likedDropdownOption === "liked") {
     simpsonsCopy.sort((itemOne, itemTwo) => {
       if (itemOne.liked === true) return -1;
       if (!itemTwo.liked) return 1;
     });
-  } else if (liked === "notLiked") {
+  } else if (likedDropdownOption === "notLiked") {
     simpsonsCopy.sort((itemOne, itemTwo) => {
       if (itemTwo.liked === true) return -1;
       if (!itemOne.liked) return 1;
@@ -121,21 +106,9 @@ const App = () => {
           {total}
         </h1>
 
-        <Search
-          characterInput={characterInput}
-          onCharacterInput={onCharacterInput}
-          onSearchInput={onSearchInput}
-          onLikeDislikeInput={onLikeDislikeInput}
-        />
+        <Search />
       </div>
-      <Simpsons
-        simpsons={simpsonsCopy}
-        // onLikeToggle={onLikeToggle}
-        // onDelete={onDelete}
-        // onDirection={onDirection}
-        // setDirection={onDirection}
-      />
-      <Delete onDeleteItem={onDeleteItem} />
+      <Simpsons simpsons={simpsonsCopy} />
     </>
   ); //must return HTML
 };

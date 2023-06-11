@@ -1,11 +1,11 @@
 import joi from "joi";
-import { characterSchema } from "../validation/schemas";
+import { searchSchema } from "../validation/schemas";
 export const validate = async (payload, type) => {
   let r;
   switch (type) {
-    case "characterSchema":
+    case "searchSchema":
       //call joi
-      r = joi.object(characterSchema);
+      r = joi.object(searchSchema);
       break;
     //put other option here  such and another case like "register" from russell @ 20:01 video
     //https://drive.google.com/file/d/1E-yhdHYrSM2svb3pfKp6XiQZMkpnOxtb/view?ts=647fa987

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchCount } from "./counterAPI";
 
-const initialState = { characterInput: "" };
+const initialState = { search: "" };
 
 export const counterSlice = createSlice({
   name: "counter",
@@ -30,8 +30,8 @@ export const counterSlice = createSlice({
       state.search = action.payload;
     },
 
-    setLiked: (state, action) => {
-      state.liked = action.payload;
+    setLikedDropdownOption: (state, action) => {
+      state.likedDropdownOption = action.payload;
     },
     setCharacterInput: (state, action) => {
       state.characterInput = action.payload;
@@ -71,7 +71,7 @@ export const {
   itemDirection,
   likeToggle,
   setCharacterInput,
-  setLiked,
+  setLikedDropdownOption,
   setSearch,
   setSimpsons,
   increment,
@@ -82,7 +82,8 @@ export const {
 export const selectCount = (state) => state.counter.value;
 export const selectSimpsons = (state) => state.counter.simpsons;
 export const selectSearch = (state) => state.counter.search;
-export const selectLiked = (state) => state.counter.liked;
+export const selectLikedDropdownOption = (state) =>
+  state.counter.likedDropdownOption;
 export const selectCharacterInput = (state) => state.counter.characterInput;
 export const selectDeleteItem = (state) => state.counter.deleteItem;
 

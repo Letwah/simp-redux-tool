@@ -4,7 +4,7 @@ const Simpsons = (props) => {
   const {
     simpsons,
     onDelete,
-    onLikeToggle,
+
     onLikeDislikeInput,
     onDirection,
     direction,
@@ -17,7 +17,6 @@ const Simpsons = (props) => {
             item={item}
             key={item.id}
             onDelete={onDelete}
-            onLikeToggle={onLikeToggle}
             onLikeDislikeInput={onLikeDislikeInput}
             onDirection={onDirection}
             direction={direction}
