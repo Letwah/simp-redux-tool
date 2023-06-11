@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { validate } from "../validation";
 
-const Search = (props) => {
-  const { onCharacterInput, characterInput, onLikeDislikeInput } = props;
+const Search = () => {
   const [errors, setErrors] = useState(null); //null mean no errors
+  const [onCharacterInput, characterInput, onLikeDislikeInput] = useState();
 
   const onInput = async (e) => {
     onCharacterInput(e.target.value);

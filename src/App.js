@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import {
+  setDeleteItem,
+  selectDeleteItem,
   setLiked,
   setSimpsons,
   selectLiked,
@@ -14,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loading from "./features/counter/components/Loading";
 import Search from "./features/counter/components/Search";
 import Simpsons from "./features/counter/components/Simpsons";
+import Delete from "./features/counter/components/Delete";
 
 import "./App.css";
 
@@ -22,6 +25,7 @@ const App = () => {
   const search = useSelector(selectSearch);
   const liked = useSelector(selectLiked);
   const characterInput = useSelector(selectCharacterInput);
+  const deleteItem = useSelector(selectDeleteItem);
 
   const dispatch = useDispatch();
 
@@ -62,6 +66,10 @@ const App = () => {
   const onLikeDislikeInput = (e) => {
     // setLiked(e.target.value);
     dispatch(setLiked(e.target.value));
+  };
+
+  const onDeleteItem = (e) => {
+    dispatch(setDeleteItem(id));
   };
 
   //if nothing in state show "loading"
@@ -127,6 +135,7 @@ const App = () => {
         // onDirection={onDirection}
         // setDirection={onDirection}
       />
+      <Delete onDeleteItem={onDeleteItem} />
     </>
   ); //must return HTML
 };
