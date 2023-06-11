@@ -3,10 +3,7 @@ import axios from "axios";
 import {
   setSimpsons,
   selectSimpsons,
-  setSearch,
   selectSearch,
-  setCharacterInput,
-  selectCharacterInput,
   selectLikedDropdownOption,
 } from "./features/counter/counterSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -47,15 +44,6 @@ const App = () => {
   useEffect(() => {
     getData();
   }, [getData]); // hook that triggers behaviour - means run once cos square brackets (dependancy array)
-
-  const onCharacterInput = (value) => {
-    dispatch(setCharacterInput(value));
-  };
-
-  const onSearchInput = (e) => {
-    // setSearch(e.target.value);
-    dispatch(setSearch(e.target.value));
-  };
 
   //if nothing in state show "loading"
   if (!simpsons) return <Loading />;
