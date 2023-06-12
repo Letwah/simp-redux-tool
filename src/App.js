@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 import axios from "axios";
 import {
   setSimpsons,
@@ -86,7 +86,7 @@ const App = () => {
       <div className="title">
         <img
           className="logo"
-          src="src/assets/simpsons-logo-pink.svg"
+          src="src/features/counter/assets/simpsons-logo-pink.svg"
           alt="simpsons logo"
         ></img>
         <h1>
