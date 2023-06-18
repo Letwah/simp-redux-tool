@@ -1,8 +1,7 @@
 import Character from "./Character";
 
 const Simpsons = (props) => {
-  const { simpsons, onDelete, onLikeDislikeInput, onDirection, direction } =
-    props;
+  const { simpsons, onDelete, onLikeDislikeInput, onDirection } = props;
   return (
     <>
       {simpsons.map((item) => {
@@ -13,7 +12,6 @@ const Simpsons = (props) => {
             onDelete={onDelete}
             onLikeDislikeInput={onLikeDislikeInput}
             onDirection={onDirection}
-            direction={direction}
           />
         );
       })}

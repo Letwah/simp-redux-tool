@@ -86,7 +86,9 @@ const App = () => {
       <div className="title">
         <img
           className="logo"
-          src="src/features/counter/assets/simpsons-logo-pink.svg"
+          src={
+            require("./features/counter/assets/simpsons-logo-pink.svg").default
+          }
           alt="simpsons logo"
         ></img>
         <h1>

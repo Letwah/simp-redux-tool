@@ -1,18 +1,16 @@
+import { useDispatch } from "react-redux";
+import { itemDirection } from "../counterSlice";
+
 const Direction = (props) => {
-  const { onDirection, id } = props;
+  const dispatch = useDispatch();
+  const { id } = props;
   return (
     <>
       <div>
         <label className="directionToggle">
           <p>Switch Character Direction</p>
 
-          <input
-            type="checkbox"
-            onClick={() => {
-              console.log("ran", Date.now());
-              onDirection(id);
-            }}
-          />
+          <input type="checkbox" onClick={() => dispatch(itemDirection(id))} />
           <span className="slider round"></span>
         </label>
 

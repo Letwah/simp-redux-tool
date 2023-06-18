@@ -2,14 +2,14 @@ import Name from "./Name";
 import Quote from "./Quote";
 import Image from "./Image";
 import Delete from "./Delete";
-// import Direction from "./Direction";
-import { useDispatch } from "react-redux";
+import Direction from "./Direction";
+// import { useDispatch } from "react-redux";
 
 const Character = (props) => {
   const { character, quote, image, id, characterDirection, liked } = props.item;
-  // const { onLikeToggle, onDirection } = props;
+  const { onLikeToggle, onDirection } = props;
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // console.log(direction);
 
@@ -21,7 +21,7 @@ const Character = (props) => {
         <Quote quote={quote} />
         <Image image={image} character={character} liked={liked} />
         <Delete id={id} />
-        {/* <Direction onDirection={onDirection} id={id} /> */}
+        <Direction onDirection={onDirection} id={id} />
       </div>
     );
   }
@@ -32,7 +32,7 @@ const Character = (props) => {
       <Image image={image} character={character} liked={liked} />
       <Quote quote={quote} />
       <Delete id={id} />
-      {/* <Direction onDirection={onDirection} id={id} /> */}
+      <Direction onDirection={onDirection} id={id} />
     </div>
   );
 };
