@@ -6,8 +6,8 @@ import Direction from "./Direction";
 // import { useDispatch } from "react-redux";
 
 const Character = (props) => {
-  const { character, quote, image, id, characterDirection, liked } = props.item;
-  const { onLikeToggle, onDirection } = props;
+  const { character, quote, image, id, characterDirection } = props.item;
+  const { likeToggle, onDirection } = props;
 
   // const dispatch = useDispatch();
 
@@ -17,9 +17,9 @@ const Character = (props) => {
     return (
       //this is like each "card"
       <div className="characterContainer">
-        <Name character={character} id={id} liked={liked} />
+        <Name character={character} id={id} likeToggle={likeToggle} />
         <Quote quote={quote} />
-        <Image image={image} character={character} liked={liked} />
+        <Image image={image} character={character} likeToggle={likeToggle} />
         <Delete id={id} />
         <Direction onDirection={onDirection} id={id} />
       </div>
@@ -28,8 +28,8 @@ const Character = (props) => {
   return (
     //this is like each "card" character direction
     <div className="characterContainer">
-      <Name character={character} id={id} liked={liked} />
-      <Image image={image} character={character} liked={liked} />
+      <Name character={character} id={id} likeToggle={likeToggle} />
+      <Image image={image} character={character} likeToggle={likeToggle} />
       <Quote quote={quote} />
       <Delete id={id} />
       <Direction onDirection={onDirection} id={id} />
