@@ -10,7 +10,7 @@ import {
 const Search = () => {
   const search = useSelector(selectSearch);
   const [errors, setErrors] = useState(null); //null mean no errors
-  // const [onCharacterInput, characterInput] = useState();
+
   const dispatch = useDispatch();
 
   const onInput = async (e) => {
