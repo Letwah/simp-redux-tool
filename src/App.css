@@ -56,10 +56,11 @@
 
 @media only screen and (max-width: 600px) {
   #root {
-    background-image: url("./features/counter/assets/DohNuts.png");
+    background-image: url("./features/counter/assets/mobileBG.svg");
     background-repeat: repeat;
     background-attachment: fixed;
-    background-size: auto; /* Resize the background image to cover the entire container */
+    background-size: auto;
+    background-position: center; /* Resize the background image to cover the entire container */
   }
 }
 
