@@ -54,6 +54,15 @@
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
+@media only screen and (max-width: 600px) {
+  #root {
+    background-image: url("./features/counter/assets/DohNuts.png");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: auto; /* Resize the background image to cover the entire container */
+  }
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
