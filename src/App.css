@@ -329,7 +329,7 @@ p {
   }
 
   div.characterContainer {
-    margin: 2em;
+    margin: 2em auto;
   }
 }
 
