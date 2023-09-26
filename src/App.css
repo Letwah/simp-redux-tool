@@ -315,11 +315,11 @@ p {
 @media screen and (min-width: 875px) {
   .characterContainer {
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-columns: 0.2fr 2fr 2fr 1fr;
     gap: 25px;
   }
 
-  .characterContainer div {
+  div.characterContainer {
     margin: 2em;
   }
 }
